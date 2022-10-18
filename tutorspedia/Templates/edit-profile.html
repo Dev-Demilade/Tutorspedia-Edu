@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/assets/img/favicon.png">
+  <link rel="canonical" href="https://appseed.us/admin-dashboards/django-dashboard-black">
+  
+  <title>
+    {{request.user.get_full_name}}'s Profile
+  </title>
+
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- Nucleo {Icons -->
+  <link href="{% static '/assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="{% static '/assets/css/black-dashboard.css?v=1.0.0' %}" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="{% static '/assets/css/black-dashboard.css' %}" rel="stylesheet" />
+  <link href="{% static '/assets/css/black-dashboard.css.map' %}" rel="stylesheet" />
+  <link href="{% static '/assets/css/black-dashboard.min.css' %}" rel="stylesheet" />
+  <link href="{% static '/assets/css/black-dashboard.scss' %}" rel="stylesheet" />
+
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="col-md-4">
+  <div class="card card-user">
+    <div class="card-body">
+      <p class="card-text">
+        <div class="author">
+          <div class="block block-one"></div>
+          <div class="block block-two"></div>
+          <div class="block block-three"></div>
+          <div class="block block-four"></div>
+          <a href="javascript:void(0)">
+            <img class="avatar" src="{{ request.user.profile.avatar.url }}" alt='image'>
+            <h5 class="title">
+              {{ request.user.username }}
+            </h5>
+          </a>
+          <p class="description">
+            {{ request.user.email }}
+          </p>
+        </div>
+      </p>
+      <div class="card-description">
+        {{request.user.bio}}
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="button-container">
+        <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </button>
+        <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </button>
+        <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
+          <i class="fab fa-google-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div  class="alert alert-danger alert-dismissible" role="alert">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">Edit Profile</h5>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-5 pr-md-1">
+                  <div class="form-group">
+                    <label>UserID (disabled)</label>
+                    <input type="text" class="form-control" disabled="" value="{{ request.user.id }}">
+                  </div>
+                </div>
+                <div class="col-md-3 px-md-1">
+                  <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" value="{{ request.user.username }}">
+                  </div>
+                </div>
+                <div class="col-md-4 pl-md-1">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" value="{{ request.user.email }}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" placeholder="First Name" value="{{request.user.first_name}}">
+                  </div>
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" placeholder="Last Name" value="{{request.user.last_name}}">
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label>About Me</label>
+                    <textarea rows="4" cols="80" class="form-control" placeholder="Bio" value="Mike">{{resquest.user.bio}}</textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-fill btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+</div>
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+<script src="{% static '/assets/js/black-dashboard.js' %}"></script>
+<script src="{% static '/assetslack-dashboard.min.js' %}"></script>
+

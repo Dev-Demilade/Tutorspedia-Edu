@@ -1,0 +1,237 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css' %}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/select2/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css' %}">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" />
+  </head>
+  <body>
+    <div class="container-scroller">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+            <a class="sidebar-brand brand-logo" href="index.html"><img src="{% static 'images/logo.svg' %}" alt="logo" /></a>
+            <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{% static 'images/logo.svg' %}" alt="logo" /></a>
+          </div>
+          <ul class="nav">
+            <li class="nav-item profile">
+              <div class="profile-desc">
+                <div class="profile-pic">
+                  <div class="count-indicator">
+                    <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
+                    <span class="count bg-success"></span>
+                  </div>
+                  <div class="profile-name">
+                    <h5 class="mb-0 font-weight-normal">{{request.user.get_full_name}}</h5>
+                    <span>Member</span>
+                  </div>
+                </div>
+                <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                  <a href="#" class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-primary"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-onepassword  text-info"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="{% url 'logout' %}" class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar-today text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1 text-small">logout</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item nav-category">
+              <span class="nav-link">Navigation</span>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{% url 'edit_profile' %}">
+                <span class="menu-icon">
+                  <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" data-toggle="collapse" href="{% url 'courses' %}" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-icon">
+                  <i class="mdi mdi-book-open-page-variant"></i>
+                </span>
+                <span class="menu-title">Courses</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="">
+                <span class="menu-icon">
+                  <i class="mdi mdi-cart-outline"></i>
+                </span>
+                <span class="menu-title">Cart</span>
+              </a>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{% url 'edit_profile' %}">
+                <span class="menu-icon">
+                  <i class="mdi mdi-pencil "></i>
+                </span>
+                <span class="menu-title">Edit Profile</span>
+              </a>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="auth">
+                <span class="menu-icon">
+                  <i class="mdi mdi-settings"></i>
+                </span>
+                <span class="menu-title">Settings</span>
+              </a>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="#">
+                <span class="menu-icon">
+                  <i class="mdi mdi-account-multiple"></i>
+                </span>
+                <span class="menu-title">Community</span>
+              </a>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="#">
+                <span class="menu-icon">
+                  <i class="mdi mdi-briefcase"></i>
+                </span>
+                <span class="menu-title">Become An Instructor</span>
+              </a>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="#">
+                <span class="menu-icon">
+                  <i class="mdi mdi-tablet-android"></i>
+                </span>
+                <span class="menu-title">Download our App</span>
+              </a>
+            </li>
+  
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{% url 'logout' %}">
+                <span class="menu-icon">
+                  <i class="mdi mdi-logout"></i>
+                </span>
+                <span class="menu-title">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Profile</h4>
+                <p class="card-description"> Edit Profile </p>
+                <form method="POST" action="{% url 'edit_profile' %}" class="forms-sample">
+                    {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputName1">First Name</label>
+                    <input type="text" class="form-control" name="first_name" id="exampleInputName1" placeholder="{{user.first_name}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" id="exampleInputName1" placeholder="{{user.last_name}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Email address</label>
+                    <input type="email" class="form-control" name="email" id="exampleInputEmail3" placeholder="{{user.email}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1">Username</label>
+                    <input type="password" class="form-control" name="username" id="exampleInputName1" placeholder="{{user.username}}">
+                  </div>
+                  <button type="submit" value="edit_profile" class="btn btn-primary mr-2">Save</button>
+                  <button class="btn btn-dark">Cancel</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:../../partials/_footer.html -->
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+        </div>
+      </footer>
+      <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'assets/vendors/js/vendor.bundle.base.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{% static 'assets/vendors/select2/select2.min.js' %}"></script>
+    <script src="../../assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{% static 'assets/js/off-canvas.js' %}"></script>
+    <script src="{% static 'assets/js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'assets/js/misc.js' %}"></script>
+    <script src="{% static 'assets/js/settings.js' %}"></script>
+    <script src="{% static 'assets/js/todolist.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{% static 'assets/js/file-upload.js'%}"></script>
+    <script src="{% static 'assets/js/typeahead.js' %}"></script>
+    <script src="{% static 'assets/js/select2.js' %}"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

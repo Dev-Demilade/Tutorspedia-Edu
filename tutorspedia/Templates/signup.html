@@ -1,0 +1,199 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+   
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!--====== Title ======-->
+    <title>Create An Account - Tutorspedia</title>
+    
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    
+    <!--====== Nice Select css ======-->
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    
+    <!--====== Nice Number css ======-->
+    <link rel="stylesheet" href="{% static 'css/jquery.nice-number.min.css' %}">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  
+  
+</head>
+
+<body>
+   
+    <!--====== PRELOADER PART START ======-->
+    
+    <div class="preloader">
+        <div class="loader rubix-cube">
+            <div class="layer layer-1"></div>
+            <div class="layer layer-2"></div>
+            <div class="layer layer-3 color-1"></div>
+            <div class="layer layer-4"></div>
+            <div class="layer layer-5"></div>
+            <div class="layer layer-6"></div>
+            <div class="layer layer-7"></div>
+            <div class="layer layer-8"></div>
+        </div>
+    </div>
+    
+    <!--====== PRELOADER PART START ======-->
+
+    
+    <!--====== SIGNUP PART START ======-->
+    
+    <section id="contact-page" class="pt-90 pb-120 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="contact-from mt-30">
+                        <div class="section-title">
+                            <h5>Sign Up</h5>
+                            <h2>Create An Account</h2>
+                        </div> <!-- section title -->
+                        <div class="main-form pt-45">
+                            {% if messages %}
+                            <div class="alert alert-info alert-dismissible" role="alert">
+                                <div id="form_errors">
+                                    {% for message in messages %}
+                                    <strong> {{message}}</strong>
+                                    {% endfor %}
+                                </div>
+                                <button type="buttom" class="close" data-dismiss="alert" arial-label="Close">
+                                <span arial-hidden="true">&times:</span>
+                                </button>
+                            </div>
+                            {% endif %}
+                            <form id="signup-form" action="{% url 'register' %}" method="POST" data-toggle="validator">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="first_name" type="text" placeholder="First Name" data-error="First Name is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="last_name" type="text" placeholder="Last Name" data-error="Last Name is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="username" type="text" placeholder="Username" data-error="Username is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="email" type="email" placeholder="Email" data-error="Valid email is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="password" type="password" placeholder="Password" data-error="Password is required." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form --> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="singel-form form-group">
+                                            <input name="Cpassword" type="password" placeholder="Confirm Password" data-error="Password don't match." required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div> <!-- singel form -->
+                                    </div>
+                                    
+                                    
+                                    <div class="col-md-12">
+                                        <div class="singel-form">
+                                        <button type="submit" value="register" class="main-btn">Sign Up</button>
+                                        </div> <!-- singel form -->
+                                        <br>
+                                        <p>Already have an account? <a href="login"> Sign In </a></p>
+                                    </div>
+                                </div> <!-- row -->
+                            </form>
+                        </div> <!-- main form -->
+                    </div> <!--  contact from -->
+                </div>
+    <!--====== BACK TO TOP PART ENDS ======-->
+    
+    
+    
+    
+    
+    
+    
+    <!--====== jquery js ======-->
+    <script src="{% static 'js/vendor/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <!--====== Slick js ======-->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    
+    <!--====== Magnific Popup js ======-->
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    
+    <!--====== Counter Up js ======-->
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    
+    <!--====== Nice Select js ======-->
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    
+    <!--====== Nice Number js ======-->
+    <script src="{% static 'js/jquery.nice-number.min.js' %}"></script>
+    
+    <!--====== Count Down js ======-->
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    
+    <!--====== Validator js ======-->
+    <script src="{% static 'js/validator.min.js' %}"></script>
+    
+    <!--====== Ajax Contact js ======-->
+    <script src="{% static 'js/ajax-contact.js' %}"></script>
+    
+    <!--====== Main js ======-->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script src="{% static 'assets/js/file-upload.js'%}"></script>
+    
+    <!--====== Map js ======-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
+    <script src="{% static 'js/map-script.js' %}"></script>
+
+</body>
+</html>
